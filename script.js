@@ -1,6 +1,6 @@
 const main = document.querySelector('main');
 const voicesSelect = document.getElementById('voices');
-const textArea = document.getElementById('text');
+const textarea = document.getElementById('text');
 const readBtn = document.getElementById('read');
 const toggleBtn = document.getElementById('toggle');
 const closeBtn = document.getElementById('close');
@@ -71,13 +71,11 @@ function createBox(item) {
   `;
 
   // @todo - speak event
-
   box.addEventListener('click', () => {
     setTextMessage(text);
     speakText();
 
     // Add active effect
-
     box.classList.add('active');
     setTimeout(() => box.classList.remove('active'), 800);
   });
@@ -89,7 +87,6 @@ function createBox(item) {
 const message = new SpeechSynthesisUtterance();
 
 // Array to Store Voices
-
 let voices = [];
 
 function getVoices() {
@@ -121,22 +118,25 @@ function setVoice(e) {
 }
 
 // Voices Changed
-
 speechSynthesis.addEventListener('voiceschanged', getVoices);
 
 // Toggle Text Box
-
 toggleBtn.addEventListener('click', () =>
   document.getElementById('text-box').classList.toggle('show')
 );
 
 // Close Button
-
 closeBtn.addEventListener('click', () =>
   document.getElementById('text-box').classList.remove('show')
 );
 
 // Change Voice
 voicesSelect.addEventListener('change', setVoice);
+
+// Read Text Button
+readBtn.addEventListener('click', () => {
+  setTextMessage(textarea.value);
+  speakText();
+});
 
 getVoices();
