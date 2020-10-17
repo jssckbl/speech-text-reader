@@ -15,4 +15,4 @@ JavaScript, CSS, and HTML are used.
 
 ![Toggle Text Box image](speechTextReader2.png)
 
-![Toggle Text Box image with new voice selected and sample text](speechTextReader3.png)
+![Toggle Text Box image with new voice selected and sample text](SpeechTextReader3.png)
